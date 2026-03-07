@@ -8,15 +8,17 @@ interface Props {
 }
 
 export const Layout = ({ children }: Props) => {
-  const [lightMode, setMode] = useState(true);
+  const [lightMode, setMode] = useState(false);
 
-  const handleColorMode = () => {
-    setMode(!lightMode);
+  const handleColorMode = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMode(e.target.checked);
   };
 
   return (
     <div>
-      <header className={styles.header}>
+      <header
+        className={`${styles.header} ${lightMode ? styles.headerLight : styles.headerDark}`}
+      >
         <h1>SPACE X</h1>
         <nav className={styles.navbar}>
           <NavLink className={styles.link} to={routes.home}>
@@ -26,7 +28,12 @@ export const Layout = ({ children }: Props) => {
             LAUNCHES
           </NavLink>
           <label className={styles.switch}>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleColorMode(e)
+              }
+            />
             <span className={styles.slider}></span>
           </label>
         </nav>

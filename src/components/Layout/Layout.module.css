@@ -4,6 +4,14 @@
   align-items: center;
 }
 
+.headerLight {
+    background-color: #8983f7;
+}
+
+.headerDark {
+    background-color: rgb(255, 255, 156);
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -13,14 +21,15 @@
 .link {
   text-decoration: none;
   color: black;
+  font-size: 1.2rem;
 }
 
 .switch {
   display: block;
-  --width-of-switch: 3.5em;
-  --height-of-switch: 2em;
-  --size-of-icon: 1.4em;
-  --slider-offset: 0.3em;
+  --width-of-switch: 3rem;
+  --height-of-switch: 1.5rem;
+  --size-of-icon: 1rem;
+  --slider-offset: 0.3rem;
   position: relative;
   width: var(--width-of-switch);
   height: var(--height-of-switch);
@@ -47,10 +56,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: var(--size-of-icon, 1.4em);
-  width: var(--size-of-icon, 1.4em);
+  height: var(--size-of-icon, 1.4rem);
+  width: var(--size-of-icon, 1.4rem);
   border-radius: 20px;
-  left: var(--slider-offset, 0.3em);
+  left: var(--slider-offset, 0.3rem);
   top: 50%;
   transform: translateY(-50%);
   background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
@@ -62,7 +71,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  left: calc(100% - (var(--size-of-icon, 1.4rem) + var(--slider-offset, 0.3rem)));
   background: #303136;
   box-shadow:
     inset -3px -2px 5px -2px #8983f7,
