@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "./Timer.module.css";
 import { MissionDescription } from "../MissionDescription/MissionDescription";
+import { ViewMoreButton } from "../ViewMoreButton/ViewMoreButton";
 
 export const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(10000);
+  const textToDisplayOnButton = "VIEW LAUNCH"
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,11 +52,7 @@ export const Timer = () => {
           <p className={styles.timerText}>SECONDS</p>
         </div>
       </div>
-      <div className={styles.buttonContainer}>
-        <button className={styles.button}>
-          VIEW LAUNCH <span className={styles.arrow}>&#10230;</span>
-        </button>
-      </div>
+      <ViewMoreButton textToDisplay={textToDisplayOnButton} />
     </div>
   );
 };
