@@ -1,12 +1,33 @@
 .timer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  background-color: gray;
-  padding: 0.5rem 0.2rem 0.5rem 0.2rem;
-  border-radius: 10px;
-  width: fit-content;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 23vw;
+  color: white;
+}
+
+.title {
+  font-family: var(--main-font-bold);
+  font-size: 2rem;
+}
+
+.missionName {
+  font-family: var(--main-font);
+  margin: 0;
+}
+
+.missionDescription {
+  font-family: var(--main-font);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.countdown {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .timerItem {
@@ -14,7 +35,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 5rem;
+  width: auto;
   gap: 0.5rem;
 }
 
@@ -24,12 +45,40 @@
 }
 
 .timerValue {
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: var(--main-font-bold);
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: var(--main-font-bold);
 }
 
 .timerText {
-    font-size: 1rem;
-    font-family: var(--main-font);
+  font-size: 1rem;
+  font-family: var(--main-font);
+}
+
+.buttonContainer {
+  align-self: end;
+}
+
+.button {
+  margin-top: 5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: white;
+  border: 1px solid white;
+  font-size: 1.5rem;
+  color: black;
+  font-family: var(--main-font);
+  cursor: pointer;
+}
+
+.button:hover {
+ transform: translateY(-1px);
+}
+
+.arrow {
+  transition: all 0.2s ease-in;
+  display: inline-block;
+}
+
+.button:hover > .arrow {
+  transform: translateX(5px);
 }

@@ -27,21 +27,37 @@ export const Timer = () => {
 
   return (
     <div className={styles.timer}>
-      <div className={styles.timerItem}>
-        <p className={styles.timerValue}>{pad(days)}</p>
-        <p className={styles.timerText}>DAYS</p>
+      <div>
+        <h2 className={styles.title}>Upcoming Launch: </h2>
       </div>
-      <div className={styles.timerItem}>
-        <p className={styles.timerValue}>{pad(hours)}</p>
-        <p className={styles.timerText}>HOURS</p>
+      <div>
+        <h3 className={styles.missionName}>Placeholder name</h3>
       </div>
-      <div className={styles.timerItem}>
-        <p className={styles.timerValue}>{pad(minutes)}</p>
-        <p className={styles.timerText}>MINUTES</p>
+      <div className={styles.missionDescription}>
+        <p>Placeholder description</p>
       </div>
-      <div className={styles.timerItem}>
-        <p className={styles.timerValue}>{pad(seconds)}</p>
-        <p className={styles.timerText}>SECONDS</p>
+      <div className={styles.countdown}>
+        <div className={styles.timerItem}>
+          <p className={styles.timerValue}>{pad(days)}</p>
+          <p className={styles.timerText}>DAYS</p>
+        </div>
+        <div className={styles.timerItem}>
+          <p className={styles.timerValue}>{pad(hours)}</p>
+          <p className={styles.timerText}>HOURS</p>
+        </div>
+        <div className={styles.timerItem}>
+          <p className={styles.timerValue}>{pad(minutes)}</p>
+          <p className={styles.timerText}>MINUTES</p>
+        </div>
+        <div className={styles.timerItem}>
+          <p className={styles.timerValue}>{pad(seconds)}</p>
+          <p className={styles.timerText}>SECONDS</p>
+        </div>
+      </div>
+      <div className={styles.buttonContainer}>
+        <button className={styles.button}>
+          VIEW LAUNCH <span className={styles.arrow}>&#10230;</span>
+        </button>
       </div>
     </div>
   );
