@@ -5,6 +5,7 @@ import { apiUrl } from "../../constants/apiUrl";
 import type { Launch, PaginatedResponse } from "../../constants/types";
 import { LaunchCard } from "../../components/LaunchCard/LaunchCard";
 import styles from "./Launches.module.css";
+import { useSearchParams } from "react-router-dom";
 
 export const Launches = () => {
   useEffect(() => {
@@ -15,9 +16,10 @@ export const Launches = () => {
   const [page, setPage] = useState(1);
   const searchRef = useRef<HTMLInputElement>(null);
   const debounceRef = useRef<number | undefined>(undefined);
-  const [searchText, setSearchText] = useState("");
   const defaultFilterOption = "all";
   const [filterOption, setFilterOption] = useState(defaultFilterOption);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get("search") ?? "";
 
   useEffect(() => {
     if (searchRef.current) searchRef.current.focus();
@@ -41,7 +43,7 @@ export const Launches = () => {
 
     clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
-      setSearchText(newSearchText);
+      setSearchParams({search: newSearchText});
     }, 300);
   };
 
@@ -75,6 +77,7 @@ export const Launches = () => {
               type="search"
               className={styles.input}
               placeholder="Search launches..."
+              defaultValue={searchText}
               onChange={(e) => handleSearch(e)}
             />
             <select
