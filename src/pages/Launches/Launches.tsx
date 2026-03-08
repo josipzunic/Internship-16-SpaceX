@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { pageNames } from "../../constants/pageNames";
 import { useFetch } from "../../hooks/useFetch";
 import { apiUrl } from "../../constants/apiUrl";
@@ -13,6 +13,15 @@ export const Launches = () => {
 
   const url = `${apiUrl}/launches/query`;
   const [page, setPage] = useState(1);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const debounceRef = useRef<number | undefined>(undefined);
+  const [searchText, setSearchText] = useState("");
+  const defaultFilterOption = "all";
+  const [filterOption, setFilterOption] = useState(defaultFilterOption);
+
+  useEffect(() => {
+    if (searchRef.current) searchRef.current.focus();
+  }, []);
 
   const options = useMemo(() => {
     return {
@@ -26,7 +35,15 @@ export const Launches = () => {
   }, [page]);
 
   const { data } = useFetch<PaginatedResponse<Launch>>(url, options);
-  console.log(data?.docs);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newSearchText = e.target.value;
+
+    clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      setSearchText(newSearchText);
+    }, 300);
+  };
 
   const launches = data?.docs;
   const hasNextPage = data?.hasNextPage;
@@ -34,16 +51,55 @@ export const Launches = () => {
   const totalPages = data?.totalPages;
   const totalResults = data?.totalDocs;
 
+  const displayedLaunches = useMemo(() => {
+    let filteredLaunches = launches?.filter((launch: Launch) => {
+      return launch.name.toLowerCase().includes(searchText.toLowerCase());
+    });
+
+    if (filterOption !== "all") {
+      filteredLaunches = filteredLaunches?.filter(
+        (launch) => String(launch.success) === filterOption,
+      );
+    }
+
+    return filteredLaunches;
+  }, [searchText, launches, filterOption]);
+
   return (
     <>
       <section className={styles.launchPage}>
         <div className={styles.totalResults}>
-          <p>showing {totalResults} results</p>
+          <div className={styles.filters}>
+            <input
+              ref={searchRef}
+              type="search"
+              className={styles.input}
+              placeholder="Search launches..."
+              onChange={(e) => handleSearch(e)}
+            />
+            <select
+              className={styles.select}
+              onChange={(e) => setFilterOption(e.target.value)}
+            >
+              <option value="all">No filter</option>
+              <option value="false">Failed missions</option>
+              <option value="true">Sucessful missions</option>
+            </select>
+          </div>
+          <p className={styles.resultNumber}>
+            showing{" "}
+            {searchText === "" && filterOption === defaultFilterOption
+              ? totalResults
+              : displayedLaunches?.length}{" "}
+            results
+          </p>
         </div>
         <div className={styles.launches}>
-          {launches?.map((launch: Launch) => (
-            <LaunchCard key={launch.id} launch={launch} />
-          ))}
+          {displayedLaunches?.length === 0
+            ? `No results for ${searchText}`
+            : displayedLaunches?.map((launch: Launch) => (
+                <LaunchCard key={launch.id} launch={launch} />
+              ))}
         </div>
       </section>
       <footer className={styles.footer}>

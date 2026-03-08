@@ -1,11 +1,13 @@
 .launchPage {
-  margin-top: 2rem;
+  margin: 2rem 1rem 0rem 1rem;
 }
 
 .launches {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5vw;
+  color: white;
+  font-family: var(--main-font);
 }
 
 .button {
@@ -45,10 +47,30 @@
 
 .totalResults {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: center;
   color: white;
   opacity: 0.8;
   font-family: var(--main-font);
+  margin-bottom: 1rem;
 }
+
+.filters {
+  display: flex;
+  gap: 11vw;
+}
+
+.input, .select {
+  background-color: white;
+  border: 1px solid white;
+  font-size: 1rem;
+  font-family: var(--main-font);
+  padding: 0.2rem;
+  box-sizing: border-box;
+}
+
+.resultNumber {
+  justify-self: end;
+}
+
+
