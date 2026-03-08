@@ -2,12 +2,14 @@ import { routes } from "./constants/routes";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
 import { Layout } from "./components/Layout/Layout";
+import { Launches } from "./pages/Launches/Launches";
 
 function App() {
   return (
     <Layout>
       <Routes>
         <Route path={routes.home} element={<Home />} />
+        <Route path={routes.launches} element={<Launches />} />
       </Routes>
     </Layout>
   );

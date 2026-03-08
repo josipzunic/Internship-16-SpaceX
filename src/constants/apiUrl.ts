@@ -1,0 +1,1 @@
+export const apiUrl = "https://api.spacexdata.com/v5";
