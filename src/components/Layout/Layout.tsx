@@ -41,7 +41,9 @@ export const Layout = ({ children }: Props) => {
           </label>
         </nav>
       </header>
-      <main className={styles.main}>{children}</main>
+      <main className={`${styles.main} ${!isHome ? styles.mainColored : ""}`}>
+        {children}
+      </main>
     </div>
   );
 };
