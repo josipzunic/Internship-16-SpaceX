@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./Timer.module.css";
+import { MissionDescription } from "../MissionDescription/MissionDescription";
 
 export const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(10000);
@@ -30,12 +31,7 @@ export const Timer = () => {
       <div>
         <h2 className={styles.title}>Upcoming Launch: </h2>
       </div>
-      <div>
-        <h3 className={styles.missionName}>Placeholder name</h3>
-      </div>
-      <div className={styles.missionDescription}>
-        <p>Placeholder description</p>
-      </div>
+      <MissionDescription />
       <div className={styles.countdown}>
         <div className={styles.timerItem}>
           <p className={styles.timerValue}>{pad(days)}</p>

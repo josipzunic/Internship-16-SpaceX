@@ -13,17 +13,6 @@
   font-size: 2rem;
 }
 
-.missionName {
-  font-family: var(--main-font);
-  margin: 0;
-}
-
-.missionDescription {
-  font-family: var(--main-font);
-  opacity: 0.8;
-  margin: 0;
-}
-
 .countdown {
   display: flex;
   justify-content: space-between;

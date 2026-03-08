@@ -1,0 +1,10 @@
+.missionName {
+  font-family: var(--main-font);
+  margin: 0;
+}
+
+.missionDescription {
+  font-family: var(--main-font);
+  opacity: 0.8;
+  margin: 0;
+}
