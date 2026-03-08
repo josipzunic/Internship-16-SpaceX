@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../constants/routes";
 import type { Launch } from "../../constants/types";
 import { ViewMoreButton } from "../ViewMoreButton/ViewMoreButton";
 import styles from "./LaunchCard.module.css";
@@ -9,6 +11,7 @@ interface Props {
 export const LaunchCard = ({ launch }: Props) => {
   const date = new Date(launch.date_utc);
   const textToDisplayOnButton = "VIEW MORE";
+  const navigate = useNavigate();
 
   return (
     <div className={styles.card}>
@@ -17,7 +20,7 @@ export const LaunchCard = ({ launch }: Props) => {
         <div>
           <p>
             DATE:{" "}
-            {`${date.getUTCFullYear()}-${date.getUTCMonth()+1}-${date.getUTCDate()}`}
+            {`${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`}
           </p>
           <p>TIME: {`${date.getUTCHours()}:${date.getUTCMinutes()}`}</p>
         </div>
@@ -30,7 +33,13 @@ export const LaunchCard = ({ launch }: Props) => {
               : "Failed"}
         </p>
       </div>
-      <ViewMoreButton textToDisplay={textToDisplayOnButton} isHome={false} />
+      <ViewMoreButton
+        textToDisplay={textToDisplayOnButton}
+        isHome={false}
+        onSelect={() =>
+          navigate(routes.launchDetails.replace(":id", launch.id))
+        }
+      />
     </div>
   );
 };

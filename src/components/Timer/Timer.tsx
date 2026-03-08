@@ -5,7 +5,7 @@ import { ViewMoreButton } from "../ViewMoreButton/ViewMoreButton";
 
 export const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(10000);
-  const textToDisplayOnButton = "VIEW LAUNCH"
+  const textToDisplayOnButton = "VIEW LAUNCH";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -52,7 +52,11 @@ export const Timer = () => {
           <p className={styles.timerText}>SECONDS</p>
         </div>
       </div>
-      <ViewMoreButton textToDisplay={textToDisplayOnButton} isHome={true}/>
+      <ViewMoreButton
+        textToDisplay={textToDisplayOnButton}
+        isHome={true}
+        onSelect={() => alert("come back to this")}
+      />
     </div>
   );
 };

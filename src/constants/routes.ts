@@ -1,4 +1,5 @@
 export const routes = {
     home: "/",
-    launches: "/launches"
+    launches: "/launches",
+    launchDetails: "/launches/:id",
 }

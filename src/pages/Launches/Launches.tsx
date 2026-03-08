@@ -43,7 +43,7 @@ export const Launches = () => {
 
     clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
-      setSearchParams({search: newSearchText});
+      setSearchParams({ search: newSearchText });
     }, 300);
   };
 
@@ -101,7 +101,10 @@ export const Launches = () => {
           {displayedLaunches?.length === 0
             ? `No results for ${searchText}`
             : displayedLaunches?.map((launch: Launch) => (
-                <LaunchCard key={launch.id} launch={launch} />
+                <LaunchCard
+                  key={launch.id}
+                  launch={launch}
+                />
               ))}
         </div>
       </section>
