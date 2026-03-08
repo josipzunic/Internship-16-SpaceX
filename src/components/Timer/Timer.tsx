@@ -28,20 +28,20 @@ export const Timer = () => {
   return (
     <div className={styles.timer}>
       <div className={styles.timerItem}>
-        <p>{pad(days)}</p>
-        <p>days</p>
+        <p className={styles.timerValue}>{pad(days)}</p>
+        <p className={styles.timerText}>DAYS</p>
       </div>
       <div className={styles.timerItem}>
-        <p>{pad(hours)}</p>
-        <p>hours</p>
+        <p className={styles.timerValue}>{pad(hours)}</p>
+        <p className={styles.timerText}>HOURS</p>
       </div>
       <div className={styles.timerItem}>
-        <p>{pad(minutes)}</p>
-        <p>minutes</p>
+        <p className={styles.timerValue}>{pad(minutes)}</p>
+        <p className={styles.timerText}>MINUTES</p>
       </div>
       <div className={styles.timerItem}>
-        <p>{pad(seconds)}</p>
-        <p>seconds</p>
+        <p className={styles.timerValue}>{pad(seconds)}</p>
+        <p className={styles.timerText}>SECONDS</p>
       </div>
     </div>
   );

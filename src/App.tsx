@@ -1,15 +1,15 @@
 import { routes } from "./constants/routes";
+import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/home/home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout/Layout";
 
 function App() {
-
   return (
-    <BrowserRouter>
+    <Layout>
       <Routes>
         <Route path={routes.home} element={<Home />} />
       </Routes>
-    </BrowserRouter>
+    </Layout>
   );
 }
 

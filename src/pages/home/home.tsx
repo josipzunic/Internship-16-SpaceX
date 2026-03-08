@@ -1,10 +1,10 @@
-import { Layout } from "../../components/Layout/Layout"
-import { Timer } from "../../components/Timer/Timer"
+import { Timer } from "../../components/Timer/Timer";
+import styles from "./Home.module.css"
 
 export const Home = () => {
-    return (
-        <Layout>
-            <Timer />
-        </Layout>
-    )
-}
+  return (
+    <div className={styles.home}>
+      <Timer />
+    </div>
+  );
+};

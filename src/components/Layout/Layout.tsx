@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import { useState, type ReactNode } from "react";
 import styles from "./Layout.module.css";
+import { useLocation } from "react-router-dom";
 
 interface Props {
   children?: ReactNode;
@@ -9,17 +10,19 @@ interface Props {
 
 export const Layout = ({ children }: Props) => {
   const [lightMode, setMode] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const handleColorMode = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMode(e.target.checked);
   };
 
   return (
-    <div>
+    <div className={`${styles.wrapper} ${isHome ? styles.wrapperHome : ""}`}>
       <header
-        className={`${styles.header} ${lightMode ? styles.headerLight : styles.headerDark}`}
+        className={`${styles.header} ${lightMode ? styles.headerLight : styles.headerDark} ${isHome ? styles.headerTransparent : ""}`}
       >
-        <h1>SPACE X</h1>
+        <h1 className={styles.title}>SPACE X</h1>
         <nav className={styles.navbar}>
           <NavLink className={styles.link} to={routes.home}>
             HOME
@@ -38,7 +41,7 @@ export const Layout = ({ children }: Props) => {
           </label>
         </nav>
       </header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 };

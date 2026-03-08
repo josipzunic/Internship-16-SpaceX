@@ -1,18 +1,35 @@
 .timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: gray;
+  padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+  border-radius: 10px;
+  width: fit-content;
 }
 
 .timerItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  gap: 0.5rem;
 }
 
-.timerItem p {
-    margin: 0;
+.timerValue,
+.timerText {
+  margin: 0;
+}
+
+.timerValue {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--main-font-bold);
+}
+
+.timerText {
+    font-size: 1rem;
+    font-family: var(--main-font);
 }
