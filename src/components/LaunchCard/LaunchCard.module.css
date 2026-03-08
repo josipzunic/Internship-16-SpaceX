@@ -2,8 +2,10 @@
     border: 1px solid white;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     font-family: var(--main-font);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: black;
 }
 
 .cardInfo {

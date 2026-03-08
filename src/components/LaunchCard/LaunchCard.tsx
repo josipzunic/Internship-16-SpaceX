@@ -17,9 +17,9 @@ export const LaunchCard = ({ launch }: Props) => {
         <div>
           <p>
             DATE:{" "}
-            {`${date.getUTCFullYear()}-${date.getUTCMonth()}-${date.getUTCDate()}`}
+            {`${date.getUTCFullYear()}-${date.getUTCMonth()+1}-${date.getUTCDate()}`}
           </p>
-          <p>TIME: {`${date.getUTCHours()}:${date.getUTCHours()}`}</p>
+          <p>TIME: {`${date.getUTCHours()}:${date.getUTCMinutes()}`}</p>
         </div>
         <p>
           STATUS:{" "}
@@ -30,8 +30,7 @@ export const LaunchCard = ({ launch }: Props) => {
               : "Failed"}
         </p>
       </div>
-      <div></div>
-      <ViewMoreButton textToDisplay={textToDisplayOnButton} isHome={false}/>
+      <ViewMoreButton textToDisplay={textToDisplayOnButton} isHome={false} />
     </div>
   );
 };

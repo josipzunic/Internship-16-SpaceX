@@ -36,27 +36,34 @@ export const Launches = () => {
 
   return (
     <>
-      <section className={styles.launches}>
-        {launches?.map((launch: Launch) => (
-          <LaunchCard key={launch.id} launch={launch} />
-        ))}
+      <section className={styles.launchPage}>
+        <div className={styles.totalResults}>
+          <p>showing {totalResults} results</p>
+        </div>
+        <div className={styles.launches}>
+          {launches?.map((launch: Launch) => (
+            <LaunchCard key={launch.id} launch={launch} />
+          ))}
+        </div>
       </section>
-      <footer>
+      <footer className={styles.footer}>
         <button
           disabled={!hasPrevPage}
           onClick={() => setPage((current) => current - 1)}
+          className={styles.button}
         >
-          Previous
+          &lt; Previous
         </button>
+        <p className={styles.pageNumber}>{page}</p>
         <button
           disabled={!hasNextPage}
           onClick={() => setPage((current) => current + 1)}
+          className={styles.button}
         >
-          Next
+          Next &gt;
         </button>
+        <p className={styles.totalPages}>total pages: {totalPages}</p>
       </footer>
-      <p>total pages {totalPages}</p>
-      <p>showing {totalResults} results</p>
     </>
   );
 };
