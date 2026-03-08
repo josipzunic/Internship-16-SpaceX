@@ -52,7 +52,7 @@ export const Timer = () => {
           <p className={styles.timerText}>SECONDS</p>
         </div>
       </div>
-      <ViewMoreButton textToDisplay={textToDisplayOnButton} />
+      <ViewMoreButton textToDisplay={textToDisplayOnButton} isHome={true}/>
     </div>
   );
 };

@@ -2,7 +2,8 @@
   align-self: end;
 }
 
-.button {
+.button,
+.buttonSpecial {
   margin-top: 5rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
   background-color: white;
@@ -13,8 +14,13 @@
   cursor: pointer;
 }
 
-.button:hover {
- transform: translateY(-1px);
+.buttonSpecial {
+  margin: 3rem 1rem 1rem 1rem;
+}
+
+.button,
+.buttonSpecial:hover {
+  transform: translateY(-1px);
 }
 
 .arrow {
@@ -22,6 +28,7 @@
   display: inline-block;
 }
 
-.button:hover > .arrow {
+.button,
+.buttonSpecial:hover > .arrow {
   transform: translateX(5px);
 }

@@ -11,3 +11,10 @@ export interface PaginatedResponse<T> {
   prevPage: number | null;
   nextPage: number | null;
 }
+
+export interface Launch {
+  id: string;
+  name: string;
+  date_utc: string;
+  success: boolean;
+}
