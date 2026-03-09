@@ -32,7 +32,7 @@ export const LaunchDetails = () => {
     <Loading />
   ) : (
     <div className={styles.details}>
-      <div className={!lightMode ? styles.detailsCardLight : styles.detailsCardDark}>
+      <div className={lightMode ? styles.detailsCardLight : styles.detailsCardDark}>
         <div className={styles.backButton}>
           <button className={styles.button} onClick={() => navigate(-1)}>
             {" "}

@@ -16,7 +16,7 @@ export const LaunchCard = ({ launch }: Props) => {
   const { lightMode } = useTheme();
 
   return (
-    <div className={!lightMode ? styles.cardLight : styles.cardDark}>
+    <div className={lightMode ? styles.cardLight : styles.cardDark}>
       <div className={styles.cardInfo}>
         <h1 className={styles.title}>{launch.name}</h1>
         <div>

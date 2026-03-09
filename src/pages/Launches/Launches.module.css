@@ -92,3 +92,54 @@
 .resultNumberLight {
   color: black;
 }
+
+@media (max-width: 768px) {
+  .launches {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .filters {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .footerDark,
+  .footerLight {
+    gap: 1.5rem;
+  }
+
+  .totalResults {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .inputDark,
+  .inputLight,
+  .selectDark,
+  .selectLight {
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .launches {
+    grid-template-columns: 1fr;
+  }
+
+  .footerDark,
+  .footerLight {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .button {
+    font-size: 1rem;
+  }
+
+  .pageNumber {
+    font-size: 1.2rem;
+  }
+}

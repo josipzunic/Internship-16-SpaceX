@@ -15,7 +15,7 @@ export const ShipCard = ({ ship }: Props) => {
   const {lightMode} = useTheme();
 
   return (
-    <div key={ship.id} className={!lightMode ? styles.shipCardLight : styles.shipCardDark}>
+    <div key={ship.id} className={lightMode ? styles.shipCardLight : styles.shipCardDark}>
       <img
         src={ship.image ?? undefined}
         alt={ship.name}

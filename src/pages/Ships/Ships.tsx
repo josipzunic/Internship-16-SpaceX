@@ -59,14 +59,14 @@ export const Ships = () => {
           <input
             ref={searchRef}
             type="search"
-            className={!lightMode ? styles.inputLight : styles.inputDark}
+            className={lightMode ? styles.inputLight : styles.inputDark}
             placeholder="Search ships..."
             onChange={handleSearch}
           />
         </div>
         <p
           className={
-            !lightMode ? styles.resultNumberLight : styles.resultNumberDark
+            lightMode ? styles.resultNumberLight : styles.resultNumberDark
           }
         >
           found {searchText === "" ? totalDocs : displayedShips.length} results

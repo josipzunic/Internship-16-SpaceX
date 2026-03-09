@@ -58,3 +58,40 @@
 .button:hover {
   transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+  .detailsCardLight,
+  .detailsCardDark {
+    flex-direction: column;
+    min-width: unset;
+    width: 90vw;
+    padding: 1rem;
+  }
+
+  .info {
+    width: 100%;
+    font-size: 1.2rem;
+    border-left: none;
+    border-top: 2px solid black;
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .emblem {
+    width: 10rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .info {
+    font-size: 1rem;
+  }
+
+  .emblem {
+    width: 8rem;
+  }
+
+  .button {
+    font-size: 1.2rem;
+  }
+}

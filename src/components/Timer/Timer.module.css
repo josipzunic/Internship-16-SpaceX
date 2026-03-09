@@ -49,3 +49,62 @@
   font-size: 1rem;
   font-family: var(--main-font);
 }
+
+@media (max-width: 1200px) {
+  .timerDark,
+  .timerLight {
+    width: 35vw;
+  }
+
+  .timerValue {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .timerDark,
+  .timerLight {
+    width: 45vw;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .timerDark,
+  .timerLight {
+    width: 60vw;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .timerValue {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .timerDark,
+  .timerLight {
+    width: 85vw;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .timerValue {
+    font-size: 1.5rem;
+  }
+
+  .timerText {
+    font-size: 0.8rem;
+  }
+}

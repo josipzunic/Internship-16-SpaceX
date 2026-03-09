@@ -34,7 +34,7 @@ export const Timer = () => {
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <div className={!lightMode ? styles.timerLight : styles.timerDark}>
+    <div className={lightMode ? styles.timerLight : styles.timerDark}>
       <div>
         <h2 className={styles.title}>Upcoming Launch: </h2>
       </div>

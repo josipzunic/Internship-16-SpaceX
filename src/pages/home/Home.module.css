@@ -1,6 +1,22 @@
 .home {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5rem;
+}
+
+@media (max-width: 768px) {
+  .home {
+    justify-content: center;
+    padding-right: 0;
+    padding: 2rem 1rem;
+    align-items: flex-end;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .home {
+    padding-bottom: 2rem;
+  }
 }

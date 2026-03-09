@@ -56,13 +56,13 @@ export const Launches = () => {
             <input
               ref={searchRef}
               type="search"
-              className={!lightMode ? styles.inputLight : styles.inputDark}
+              className={lightMode ? styles.inputLight : styles.inputDark}
               placeholder="Search launches..."
               defaultValue={searchText}
               onChange={handleSearch}
             />
             <select
-              className={!lightMode ? styles.selectLight : styles.selectDark}
+              className={lightMode ? styles.selectLight : styles.selectDark}
               onChange={(e) => setFilterOption(e.target.value)}
             >
               <option value="all">No filter</option>
@@ -72,7 +72,7 @@ export const Launches = () => {
           </div>
           <p
             className={
-              !lightMode ? styles.resultNumberLight : styles.resultNumberDark
+              lightMode ? styles.resultNumberLight : styles.resultNumberDark
             }
           >
             showing{" "}
@@ -94,7 +94,7 @@ export const Launches = () => {
           )}
         </div>
       </section>
-      <footer className={!lightMode ? styles.footerLight : styles.footerDark}>
+      <footer className={lightMode ? styles.footerLight : styles.footerDark}>
         <button
           disabled={!hasPrevPage}
           onClick={() => setPage((p) => p - 1)}
