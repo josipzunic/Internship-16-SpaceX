@@ -8,11 +8,13 @@ import styles from "./Launches.module.css";
 import { useLaunchFilter } from "../../hooks/useLaunchFilter";
 import { withPageTitle } from "../../hocs/withPageTitle";
 import { Loading } from "../../components/Loading/Loading";
+import { useTheme } from "../../hooks/useTheme";
 
 export const Launches = () => {
   const url = `${apiUrlForLaunch}/launches/query`;
   const [page, setPage] = useState(1);
   const searchRef = useRef<HTMLInputElement>(null);
+  const { lightMode } = useTheme();
 
   useEffect(() => {
     if (searchRef.current) searchRef.current.focus();
@@ -54,13 +56,13 @@ export const Launches = () => {
             <input
               ref={searchRef}
               type="search"
-              className={styles.input}
+              className={!lightMode ? styles.inputLight : styles.inputDark}
               placeholder="Search launches..."
               defaultValue={searchText}
               onChange={handleSearch}
             />
             <select
-              className={styles.select}
+              className={!lightMode ? styles.selectLight : styles.selectDark}
               onChange={(e) => setFilterOption(e.target.value)}
             >
               <option value="all">No filter</option>
@@ -68,7 +70,11 @@ export const Launches = () => {
               <option value="true">Successful missions</option>
             </select>
           </div>
-          <p className={styles.resultNumber}>
+          <p
+            className={
+              !lightMode ? styles.resultNumberLight : styles.resultNumberDark
+            }
+          >
             showing{" "}
             {searchText === "" && filterOption === defaultFilterOption
               ? totalResults
@@ -88,7 +94,7 @@ export const Launches = () => {
           )}
         </div>
       </section>
-      <footer className={styles.footer}>
+      <footer className={!lightMode ? styles.footerLight : styles.footerDark}>
         <button
           disabled={!hasPrevPage}
           onClick={() => setPage((p) => p - 1)}

@@ -2,10 +2,15 @@ import { useState, useEffect } from "react";
 import styles from "./Timer.module.css";
 import { MissionDescription } from "../MissionDescription/MissionDescription";
 import { ViewMoreButton } from "../ViewMoreButton/ViewMoreButton";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../constants/routes";
+import { useTheme } from "../../hooks/useTheme";
 
 export const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(10000);
   const textToDisplayOnButton = "VIEW LAUNCH";
+  const navigate = useNavigate();
+  const { lightMode } = useTheme();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,7 +34,7 @@ export const Timer = () => {
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <div className={styles.timer}>
+    <div className={!lightMode ? styles.timerLight : styles.timerDark}>
       <div>
         <h2 className={styles.title}>Upcoming Launch: </h2>
       </div>
@@ -55,7 +60,7 @@ export const Timer = () => {
       <ViewMoreButton
         textToDisplay={textToDisplayOnButton}
         isHome={true}
-        onSelect={() => alert("come back to this")}
+        onSelect={() => navigate(routes.launches)}
       />
     </div>
   );

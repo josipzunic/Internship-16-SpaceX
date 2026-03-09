@@ -15,32 +15,38 @@
   font-family: var(--main-font);
   border: none;
   background-color: transparent;
-  color: white;
   cursor: pointer;
+  color: inherit;
 }
 
 .button:hover {
   transform: translateY(-2px);
 }
 
-.footer {
+.footerDark,
+.footerLight {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footerLight {
+  color: black;
 }
 
 .pageNumber {
-  color: white;
+  color: inherit;
   font-family: var(--main-font);
   font-size: 1.5rem;
 }
 
 .totalPages {
   font-family: var(--main-font);
-  color: white;
+  color: inherit;
   opacity: 0.8;
   font-size: 1rem;
 }
@@ -49,7 +55,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: inherit;
   opacity: 0.8;
   font-family: var(--main-font);
   margin-bottom: 1rem;
@@ -60,17 +66,29 @@
   gap: 11vw;
 }
 
-.input, .select {
+.inputDark,
+.selectDark,
+.inputLight,
+.selectLight {
   background-color: white;
-  border: 1px solid white;
+  border: 2px solid white;
   font-size: 1rem;
   font-family: var(--main-font);
   padding: 0.2rem;
   box-sizing: border-box;
 }
 
-.resultNumber {
+.inputLight,
+.selectLight {
+  border: 2px solid black;
+}
+
+.resultNumberDark,
+.resultNumberLight {
+  color: white;
   justify-self: end;
 }
 
-
+.resultNumberLight {
+  color: black;
+}

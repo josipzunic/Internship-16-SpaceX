@@ -5,11 +5,13 @@ import { useFetch } from "../../hooks/useFetch";
 import styles from "./ShipDetails.module.css";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
 import { Loading } from "../../components/Loading/Loading";
+import { useTheme } from "../../hooks/useTheme";
 
 export const ShipDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const url = `${apiUrlForRocket}/ships/${id}`;
+  const { lightMode } = useTheme();
   const { data, loading, error } = useFetch<Ship>(url);
   if (error) return <PageNotFound />;
 
@@ -17,7 +19,7 @@ export const ShipDetails = () => {
     <Loading />
   ) : (
     <div className={styles.details}>
-      <div className={styles.detailsCard}>
+      <div className={!lightMode ? styles.detailsCardLight : styles.detailsCardDark}>
         <div className={styles.backButton}>
           <button className={styles.button} onClick={() => navigate(-1)}>
             &#8592; GO BACK

@@ -1,6 +1,6 @@
 .page {
     font-family: var(--main-font);
-    color: white;
+    color: rgb(153, 5, 5);
     padding: 2rem 0rem 0rem 1rem;
     font-size: 1.5rem;
 }

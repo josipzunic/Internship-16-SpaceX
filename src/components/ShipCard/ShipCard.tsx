@@ -1,5 +1,6 @@
 import { routes } from "../../constants/routes";
 import type { Ship } from "../../constants/types";
+import { useTheme } from "../../hooks/useTheme";
 import { ViewMoreButton } from "../ViewMoreButton/ViewMoreButton";
 import styles from "./ShipCard.module.css";
 import { useNavigate } from "react-router-dom";
@@ -11,9 +12,10 @@ interface Props {
 export const ShipCard = ({ ship }: Props) => {
   const textToDisplay = "VIEW MORE";
   const navigate = useNavigate();
+  const {lightMode} = useTheme();
 
   return (
-    <div key={ship.id} className={styles.shipCard}>
+    <div key={ship.id} className={!lightMode ? styles.shipCardLight : styles.shipCardDark}>
       <img
         src={ship.image ?? undefined}
         alt={ship.name}

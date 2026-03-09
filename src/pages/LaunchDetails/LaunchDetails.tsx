@@ -5,11 +5,13 @@ import { useFetch } from "../../hooks/useFetch";
 import styles from "./LaunchDetails.module.css";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
 import { Loading } from "../../components/Loading/Loading";
+import { useTheme } from "../../hooks/useTheme";
 
 export const LaunchDetails = () => {
   const { id } = useParams();
   const urlForLaunch = `${apiUrlForLaunch}/launches/${id}`;
   const navigate = useNavigate();
+  const {lightMode} = useTheme();
 
   const {
     data: dataLaunch,
@@ -30,7 +32,7 @@ export const LaunchDetails = () => {
     <Loading />
   ) : (
     <div className={styles.details}>
-      <div className={styles.detailsCard}>
+      <div className={!lightMode ? styles.detailsCardLight : styles.detailsCardDark}>
         <div className={styles.backButton}>
           <button className={styles.button} onClick={() => navigate(-1)}>
             {" "}

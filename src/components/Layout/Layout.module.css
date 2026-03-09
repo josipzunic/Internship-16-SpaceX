@@ -14,23 +14,25 @@
   padding: 1rem 1rem 0rem 1rem;
 }
 
-.wrapperHome {
+.wrapperHomeDark {
   background-image: url("../../assets/images/5052129615_5729ff818d_o.jpg");
   background-size: cover;
   background-position: -7vw center;
 }
 
-.headerTransparent {
-  background-color: transparent;
+.wrapperHomeLight {
+  background-image: url("../../assets/images/s2-1280.jpg");
+  background-size: cover;
 }
 
-/* .headerLight {
-  background-color: #000103;
+
+.headerLight {
+  background-color: #b9b9b9;
 }
 
 .headerDark {
-  background-color: rgb(255, 255, 156);
-} */
+  background-color: transparent;
+}
 
 .title {
   margin: 0;
@@ -120,8 +122,12 @@ input:checked + .slider:before {
   flex-direction: column;
 }
 
-.mainColored {
+.mainDark {
   background-color: black;
+}
+
+.mainLight {
+  background-color: white;
 }
 
 .main > * {

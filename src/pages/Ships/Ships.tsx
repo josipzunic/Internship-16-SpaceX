@@ -10,12 +10,14 @@ import { useDebounce } from "../../hooks/useDebounce";
 import { pageNames } from "../../constants/pageNames";
 import { withPageTitle } from "../../hocs/withPageTitle";
 import { Loading } from "../../components/Loading/Loading";
+import { useTheme } from "../../hooks/useTheme";
 
 export const Ships = () => {
   const url = `${apiUrlForRocket}/ships/query`;
   const searchRef = useRef<HTMLInputElement>(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchText = searchParams.get("search") ?? "";
+  const { lightMode } = useTheme();
 
   const {
     items: ships,
@@ -57,12 +59,16 @@ export const Ships = () => {
           <input
             ref={searchRef}
             type="search"
-            className={styles.input}
+            className={!lightMode ? styles.inputLight : styles.inputDark}
             placeholder="Search ships..."
             onChange={handleSearch}
           />
         </div>
-        <p className={styles.resultNumber}>
+        <p
+          className={
+            !lightMode ? styles.resultNumberLight : styles.resultNumberDark
+          }
+        >
           found {searchText === "" ? totalDocs : displayedShips.length} results
         </p>
       </div>

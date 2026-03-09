@@ -3,6 +3,7 @@ import { routes } from "../../constants/routes";
 import type { Launch } from "../../constants/types";
 import { ViewMoreButton } from "../ViewMoreButton/ViewMoreButton";
 import styles from "./LaunchCard.module.css";
+import { useTheme } from "../../hooks/useTheme";
 
 interface Props {
   launch: Launch;
@@ -12,9 +13,10 @@ export const LaunchCard = ({ launch }: Props) => {
   const date = new Date(launch.date_utc);
   const textToDisplayOnButton = "VIEW MORE";
   const navigate = useNavigate();
+  const { lightMode } = useTheme();
 
   return (
-    <div className={styles.card}>
+    <div className={!lightMode ? styles.cardLight : styles.cardDark}>
       <div className={styles.cardInfo}>
         <h1 className={styles.title}>{launch.name}</h1>
         <div>

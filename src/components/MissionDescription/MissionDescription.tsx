@@ -1,17 +1,16 @@
-import styles from "./MissionDescription.module.css"
+import styles from "./MissionDescription.module.css";
 
 export const MissionDescription = () => {
   return (
     <>
       <div>
-        <h3 className={styles.missionName}>Lorem Ipsum</h3>
+        <h3 className={styles.missionName}>There is none</h3>
       </div>
       <div className={styles.missionDescription}>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat
-          soluta suscipit asperiores veritatis ea, laudantium commodi maiores
-          aliquam error provident fugiat, quis sequi dignissimos quia! Quo hic
-          veniam dolor incidunt?
+          The API has not been updates since 2012. So I have made a countdown
+          which counts down from 10000 seconds to satisfy this part of the task.
+          Thus, the button is hardcoded to lead you to the Launch page. My apologies.
         </p>
       </div>
     </>
