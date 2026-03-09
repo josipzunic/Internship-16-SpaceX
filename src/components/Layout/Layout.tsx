@@ -30,6 +30,9 @@ export const Layout = ({ children }: Props) => {
           <NavLink className={styles.link} to={routes.launches}>
             LAUNCHES
           </NavLink>
+          <NavLink className={styles.link} to={routes.ships}>
+            SHIPS
+          </NavLink>
           <label className={styles.switch}>
             <input
               type="checkbox"

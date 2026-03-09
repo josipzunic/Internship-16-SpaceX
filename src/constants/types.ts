@@ -11,7 +11,6 @@ export interface PaginatedResponse<T> {
   prevPage: number | null;
   nextPage: number | null;
 }
-
 export interface Launch {
   id: string;
   name: string;
@@ -35,4 +34,12 @@ export interface Launch {
 export interface Rocket {
   id: string;
   name: string;
+}
+
+export interface Ship {
+  id: string;
+  name: string;
+  type: string;
+  image: string | null;
+  active: boolean;
 }
