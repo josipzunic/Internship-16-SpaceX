@@ -9,9 +9,9 @@ import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
 import { useDebounce } from "../../hooks/useDebounce";
 import { pageNames } from "../../constants/pageNames";
 import { withPageTitle } from "../../hocs/withPageTitle";
+import { Loading } from "../../components/Loading/Loading";
 
 export const Ships = () => {
-
   const url = `${apiUrlForRocket}/ships/query`;
   const searchRef = useRef<HTMLInputElement>(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,6 +19,7 @@ export const Ships = () => {
 
   const {
     items: ships,
+    loading,
     hasNextPage,
     totalDocs,
     loadMore,
@@ -66,11 +67,13 @@ export const Ships = () => {
         </p>
       </div>
       <div className={styles.ships}>
-        {displayedShips.length === 0
-          ? `No results for ${searchText}`
-          : displayedShips.map((ship) => (
-              <ShipCard key={ship.id} ship={ship} />
-            ))}
+        {loading && ships.length === 0 ? (
+          <Loading />
+        ) : displayedShips.length === 0 ? (
+          `No results for ${searchText}`
+        ) : (
+          displayedShips.map((ship) => <ShipCard key={ship.id} ship={ship} />)
+        )}
       </div>
       <div ref={bottomRef} className={styles.bottomTrigger} />
     </section>

@@ -4,13 +4,18 @@ import type { Launch, Rocket } from "../../constants/types";
 import { useFetch } from "../../hooks/useFetch";
 import styles from "./LaunchDetails.module.css";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
+import { Loading } from "../../components/Loading/Loading";
 
 export const LaunchDetails = () => {
   const { id } = useParams();
   const urlForLaunch = `${apiUrlForLaunch}/launches/${id}`;
   const navigate = useNavigate();
 
-  const { data: dataLaunch, error: launchError } = useFetch<Launch>(urlForLaunch);
+  const {
+    data: dataLaunch,
+    loading: launchLoading,
+    error: launchError,
+  } = useFetch<Launch>(urlForLaunch);
 
   const urlForRocket = dataLaunch?.rocket
     ? `${apiUrlForRocket}/rockets/${dataLaunch.rocket}`
@@ -21,7 +26,9 @@ export const LaunchDetails = () => {
 
   if (launchError) return <PageNotFound />;
 
-  return (
+  return launchLoading ? (
+    <Loading />
+  ) : (
     <div className={styles.details}>
       <div className={styles.detailsCard}>
         <div className={styles.backButton}>

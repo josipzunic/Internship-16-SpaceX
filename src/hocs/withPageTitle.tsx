@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export const withPageTitle = <P extends object>(
   WrappedComponent: ComponentType<P>,
-  title: string
+  title: string,
 ) => {
   return (props: P) => {
     useEffect(() => {

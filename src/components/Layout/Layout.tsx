@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import { useState, type ReactNode } from "react";
 import styles from "./Layout.module.css";
@@ -12,6 +12,7 @@ export const Layout = ({ children }: Props) => {
   const [lightMode, setMode] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const navigate = useNavigate();
 
   const handleColorMode = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMode(e.target.checked);
@@ -22,7 +23,9 @@ export const Layout = ({ children }: Props) => {
       <header
         className={`${styles.header} ${lightMode ? styles.headerLight : styles.headerDark} ${isHome ? styles.headerTransparent : ""}`}
       >
-        <h1 className={styles.title}>SPACE X</h1>
+        <h1 className={styles.title} onClick={() => navigate(routes.home)}>
+          SPACE X
+        </h1>
         <nav className={styles.navbar}>
           <NavLink className={styles.link} to={routes.home}>
             HOME

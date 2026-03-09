@@ -1,0 +1,8 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  color: rgb(139, 6, 6);
+  font-size: 2rem;
+}
