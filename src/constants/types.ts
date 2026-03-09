@@ -42,4 +42,7 @@ export interface Ship {
   type: string;
   image: string | null;
   active: boolean;
+  roles: string[];
+  home_port: string;
+  launches: string[];
 }

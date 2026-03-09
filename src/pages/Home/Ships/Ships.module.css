@@ -1,3 +1,76 @@
-.test {
-    color: white;
+.shipsPage {
+  margin: 2rem 1rem 0 1rem;
+}
+
+.totalResults {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  opacity: 0.8;
+  font-family: var(--main-font);
+  margin-bottom: 1rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1.5vw;
+}
+
+.input {
+  background-color: white;
+  border: 1px solid white;
+  font-size: 1rem;
+  font-family: var(--main-font);
+  padding: 0.2rem;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+.resultNumber {
+  justify-self: end;
+}
+
+.ships {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5vw;
+  color: white;
+  font-family: var(--main-font);
+}
+
+.shipCard {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+}
+
+.shipImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.shipInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+.shipInfo p {
+  margin: 0;
+}
+
+.shipName {
+  font-size: 1.5rem;
+  margin: 0;
+  font-family: var(--main-font-bold);
+}
+
+.bottomTrigger {
+  height: 50px;
 }

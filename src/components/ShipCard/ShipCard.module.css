@@ -1,0 +1,27 @@
+.shipCard {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+}
+
+.shipImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.shipInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+.shipName {
+  font-size: 1.5rem;
+  margin: 0;
+  font-family: var(--main-font-bold);
+}
