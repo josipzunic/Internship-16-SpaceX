@@ -27,12 +27,12 @@ export const Ships = () => {
     loadMore,
   } = usePaginatedFetch<Ship>(url);
 
-  const { bottomRef, setHasNextPage, setLoading } = useInfiniteScroll(loadMore);
+  const { bottomRef, setHasNextPage } = useInfiniteScroll(loadMore);
 
   useEffect(() => {
+    console.log("hasNextPage changed:", hasNextPage);
     setHasNextPage(hasNextPage);
-    setLoading(false);
-  }, [hasNextPage, setLoading, setHasNextPage]);
+  }, [hasNextPage, setHasNextPage]);
 
   useEffect(() => {
     if (searchRef.current) searchRef.current.focus();

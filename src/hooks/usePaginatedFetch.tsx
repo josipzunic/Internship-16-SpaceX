@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useFetch } from "./useFetch";
 import type { PaginatedResponse } from "../constants/types";
 
@@ -7,14 +7,17 @@ export const usePaginatedFetch = <T,>(url: string, extraOptions?: object) => {
   const [items, setItems] = useState<T[]>([]);
   const loadedPagesRef = useRef<Set<number>>(new Set());
 
-  const options = useMemo(() => ({
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      query: {},
-      options: { limit: 5, page, ...extraOptions },
+  const options = useMemo(
+    () => ({
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: {},
+        options: { limit: 5, page, ...extraOptions },
+      }),
     }),
-  }), [page, extraOptions]);
+    [page, extraOptions],
+  );
 
   const { data, loading, error } = useFetch<PaginatedResponse<T>>(url, options);
 
@@ -26,13 +29,15 @@ export const usePaginatedFetch = <T,>(url: string, extraOptions?: object) => {
     setItems((prev) => [...prev, ...data.docs]);
   }, [data]);
 
-  const loadMore = () => setPage((prev) => prev + 1);
+  const loadMore = useCallback(() => {
+    setPage((prev) => prev + 1);
+  }, []);
 
   return {
     items,
     loading,
     error,
-    hasNextPage: data?.hasNextPage ?? false,
+    hasNextPage: data ? (data.hasNextPage ?? false) : true,
     totalDocs: data?.totalDocs,
     loadMore,
   };

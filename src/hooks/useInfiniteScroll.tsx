@@ -3,14 +3,10 @@ import { useCallback, useEffect, useRef } from "react";
 export const useInfiniteScroll = (onLoadMore: () => void) => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const loadingRef = useRef(false);
-  const hasNextPageRef = useRef(false);
+  const hasNextPageRef = useRef(true);
 
   const setHasNextPage = useCallback((value: boolean) => {
     hasNextPageRef.current = value;
-  }, []);
-
-  const setLoading = useCallback((value: boolean) => {
-    loadingRef.current = value;
   }, []);
 
   useEffect(() => {
@@ -24,6 +20,9 @@ export const useInfiniteScroll = (onLoadMore: () => void) => {
         ) {
           loadingRef.current = true;
           onLoadMore();
+          setTimeout(() => {
+            loadingRef.current = false;
+          }, 500);
         }
       },
       { rootMargin: "100px" },
@@ -32,5 +31,5 @@ export const useInfiniteScroll = (onLoadMore: () => void) => {
     return () => observer.disconnect();
   }, [onLoadMore]);
 
-  return { bottomRef, setHasNextPage, setLoading };
+  return { bottomRef, setHasNextPage };
 };
