@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { pageNames } from "../../constants/pageNames";
 import { useFetch } from "../../hooks/useFetch";
-import { apiUrl } from "../../constants/apiUrl";
+import { apiUrlForLaunch } from "../../constants/apiUrl";
 import type { Launch, PaginatedResponse } from "../../constants/types";
 import { LaunchCard } from "../../components/LaunchCard/LaunchCard";
 import styles from "./Launches.module.css";
@@ -12,7 +12,7 @@ export const Launches = () => {
     document.title = pageNames.launches;
   }, []);
 
-  const url = `${apiUrl}/launches/query`;
+  const url = `${apiUrlForLaunch}/launches/query`;
   const [page, setPage] = useState(1);
   const searchRef = useRef<HTMLInputElement>(null);
   const debounceRef = useRef<number | undefined>(undefined);
@@ -66,6 +66,7 @@ export const Launches = () => {
 
     return filteredLaunches;
   }, [searchText, launches, filterOption]);
+  console.log(data?.docs);
 
   return (
     <>

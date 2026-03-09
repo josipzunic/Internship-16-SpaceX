@@ -6,7 +6,7 @@ interface FetchState<T> {
   error: string | null;
 }
 
-export const useFetch = <T,>(url: string, options?: RequestInit) => {
+export const useFetch = <T,>(url: string | null, options?: RequestInit) => {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
     loading: true,
@@ -15,6 +15,8 @@ export const useFetch = <T,>(url: string, options?: RequestInit) => {
 
   useEffect(() => {
     const controller = new AbortController();
+
+    if (!url) return;
 
     const fetchData = async () => {
       try {

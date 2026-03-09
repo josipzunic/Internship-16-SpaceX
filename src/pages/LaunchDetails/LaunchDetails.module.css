@@ -1,0 +1,55 @@
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    background-color: white;
+    width: fit-content;
+    min-width: 50vw;
+    height: auto;
+    padding: 2rem 1rem 2rem 1rem;
+}
+
+.emblem {
+    width: 15rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-left: 2px solid black;
+    color: black;
+    font-family: var(--main-font);
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    width: 40vw;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.backButton {
+    align-self: flex-start;
+}
+
+.button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}

@@ -16,5 +16,23 @@ export interface Launch {
   id: string;
   name: string;
   date_utc: string;
-  success: boolean;
+  success: boolean | null;
+  links: {
+    patch: {
+      small: string | undefined;
+      large: string | undefined;
+    };
+    youtube_id: string | null;
+  };
+  failures: {
+    time: number;
+    altitude: number | null;
+    reason: string;
+  }[];
+  rocket: string;
+}
+
+export interface Rocket {
+  id: string;
+  name: string;
 }
