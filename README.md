@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# Internship-16-SpaceX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Internship-16-SpaceX is a multipage react JS application that allows users to peek into various Space X missions. Data used in the making of the application was sourced from SpaceX-API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse through SpaceX launch missions and recovery ships
+- Search missions and ships by name using the built in search bar
+- Filter missions based on success or failure
+- Infinite scroll on the ships page
+- Click on a mission or ship to see additional details including rocket name, failure reasons, and YouTube stream link
+- Countdown timer to the next upcoming launch
+- Choose from two color themes with preference saved across sessions
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
+- React 18
+- TypeScript
+- React Router v6
+- CSS Modules
+- SpaceX REST API (v4/v5)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Usage
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone or download the repository from GitHub
+2. Inside a terminal (recommend using VS code and opening terminal using CTRL+J or Cmd+J on MacOS) run the following command to install all the dependencies
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+npm install
 ```
+3. Start the server using 
+```
+npm run dev
+```
+4. Copy the url from the terminal into browser url search tab
+
+## API Reference
+Data is fetched from the unofficial SpaceX API:
+- Launches: `https://api.spacexdata.com/v5/launches`
+- Ships: `https://api.spacexdata.com/v4/ships`
+- Rockets: `https://api.spacexdata.com/v4/rockets`
