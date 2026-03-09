@@ -45,4 +45,7 @@ export interface Ship {
   roles: string[];
   home_port: string;
   launches: string[];
+  year_built: string;
+  mass_kg: number;
+
 }

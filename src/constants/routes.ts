@@ -3,4 +3,5 @@ export const routes = {
   launches: "/launches",
   launchDetails: "/launches/:id",
   ships: "/ships",
+  shipDetails: "/ships/:id",
 };
