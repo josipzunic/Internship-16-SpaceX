@@ -3,12 +3,14 @@ import { apiUrlForRocket } from "../../constants/apiUrl";
 import type { Ship } from "../../constants/types";
 import { useFetch } from "../../hooks/useFetch";
 import styles from "./ShipDetails.module.css";
+import { PageNotFound } from "../PageNotFound/PageNotFound";
 
 export const ShipDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const url = `${apiUrlForRocket}/ships/${id}`;
-  const { data } = useFetch<Ship>(url);
+  const { data, error } = useFetch<Ship>(url);
+  if (error) return <PageNotFound />;
 
   return (
     <div className={styles.details}>

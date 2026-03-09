@@ -6,6 +6,7 @@ import { Launches } from "./pages/Launches/Launches";
 import { LaunchDetails } from "./pages/LaunchDetails/LaunchDetails";
 import { Ships } from "./pages/Home/Ships/Ships";
 import { ShipDetails } from "./pages/ShipDetails/ShipDetails";
+import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path={routes.launchDetails} element={<LaunchDetails />} />
         <Route path={routes.ships} element={<Ships />} />
         <Route path={routes.shipDetails} element={<ShipDetails />} />
+        <Route path={routes.pageNotFound} element={<PageNotFound />} />
       </Routes>
     </Layout>
   );

@@ -4,4 +4,5 @@ export const routes = {
   launchDetails: "/launches/:id",
   ships: "/ships",
   shipDetails: "/ships/:id",
+  pageNotFound: "*"
 };

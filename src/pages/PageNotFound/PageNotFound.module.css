@@ -1,0 +1,6 @@
+.page {
+    font-family: var(--main-font);
+    color: white;
+    padding: 2rem 0rem 0rem 1rem;
+    font-size: 1.5rem;
+}

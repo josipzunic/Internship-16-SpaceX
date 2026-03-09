@@ -3,19 +3,23 @@ import { apiUrlForLaunch, apiUrlForRocket } from "../../constants/apiUrl";
 import type { Launch, Rocket } from "../../constants/types";
 import { useFetch } from "../../hooks/useFetch";
 import styles from "./LaunchDetails.module.css";
+import { PageNotFound } from "../PageNotFound/PageNotFound";
 
 export const LaunchDetails = () => {
   const { id } = useParams();
   const urlForLaunch = `${apiUrlForLaunch}/launches/${id}`;
   const navigate = useNavigate();
 
-  const { data: dataLaunch } = useFetch<Launch>(urlForLaunch);
+  const { data: dataLaunch, error: launchError } = useFetch<Launch>(urlForLaunch);
+
   const urlForRocket = dataLaunch?.rocket
     ? `${apiUrlForRocket}/rockets/${dataLaunch.rocket}`
     : null;
 
   const { data: dataRocket } = useFetch<Rocket>(urlForRocket);
   const date = new Date(dataLaunch?.date_utc ?? "");
+
+  if (launchError) return <PageNotFound />;
 
   return (
     <div className={styles.details}>
