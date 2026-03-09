@@ -18,7 +18,7 @@
   margin-bottom: 1rem;
 }
 
-.button,
+.button:hover,
 .buttonSpecial:hover {
   transform: translateY(-1px);
 }
@@ -28,7 +28,7 @@
   display: inline-block;
 }
 
-.button,
-.buttonSpecial:hover > .arrow {
+.button:hover .arrow,
+.buttonSpecial:hover .arrow {
   transform: translateX(5px);
 }

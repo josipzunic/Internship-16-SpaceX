@@ -4,7 +4,7 @@ import { Home } from "./pages/Home/Home";
 import { Layout } from "./components/Layout/Layout";
 import { Launches } from "./pages/Launches/Launches";
 import { LaunchDetails } from "./pages/LaunchDetails/LaunchDetails";
-import { Ships } from "./pages/Home/Ships/Ships";
+import { Ships } from "./pages/Ships/Ships";
 import { ShipDetails } from "./pages/ShipDetails/ShipDetails";
 import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 
