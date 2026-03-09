@@ -5,11 +5,10 @@ import { apiUrlForLaunch } from "../../constants/apiUrl";
 import type { Launch, PaginatedResponse } from "../../constants/types";
 import { LaunchCard } from "../../components/LaunchCard/LaunchCard";
 import styles from "./Launches.module.css";
-import { usePageTitle } from "../../hooks/usePageTitle";
 import { useLaunchFilter } from "../../hooks/useLaunchFilter";
+import { withPageTitle } from "../../hocs/withPageTitle";
 
 export const Launches = () => {
-  usePageTitle(pageNames.launches);
 
   const url = `${apiUrlForLaunch}/launches/query`;
   const [page, setPage] = useState(1);
@@ -95,3 +94,5 @@ export const Launches = () => {
     </>
   );
 };
+
+export const LaunchesWithTitle = withPageTitle(Launches, pageNames.launches);

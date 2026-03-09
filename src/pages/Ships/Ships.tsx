@@ -7,11 +7,10 @@ import type { Ship } from "../../constants/types";
 import { usePaginatedFetch } from "../../hooks/usePaginatedFetch";
 import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
 import { useDebounce } from "../../hooks/useDebounce";
-import { usePageTitle } from "../../hooks/usePageTitle";
 import { pageNames } from "../../constants/pageNames";
+import { withPageTitle } from "../../hocs/withPageTitle";
 
 export const Ships = () => {
-  usePageTitle(pageNames.ships);
 
   const url = `${apiUrlForRocket}/ships/query`;
   const searchRef = useRef<HTMLInputElement>(null);
@@ -77,3 +76,5 @@ export const Ships = () => {
     </section>
   );
 };
+
+export const ShipsWithTitle = withPageTitle(Ships, pageNames.ships);
