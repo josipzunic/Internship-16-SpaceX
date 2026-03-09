@@ -67,7 +67,11 @@ export const Layout = ({ children }: Props) => {
               SHIPS
             </NavLink>
             <label className={styles.switch}>
-              <input type="checkbox" defaultChecked onChange={toggleTheme} />
+              <input
+                type="checkbox"
+                checked={!lightMode}
+                onChange={toggleTheme}
+              />
               <span className={styles.slider}></span>
             </label>
           </div>
