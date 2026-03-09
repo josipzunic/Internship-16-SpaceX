@@ -4,13 +4,15 @@ import type { PaginatedResponse, Ship } from "../../../constants/types";
 import { useFetch } from "../../../hooks/useFetch";
 import styles from "./Ships.module.css";
 import { ShipCard } from "../../../components/ShipCard/ShipCard";
+import { useSearchParams } from "react-router-dom";
 
 export const Ships = () => {
   const url = `${apiUrlForRocket}/ships/query`;
   const [page, setPage] = useState(1);
-  const [searchText, setSearchText] = useState("");
   const debounceRef = useRef<number | undefined>(undefined);
   const searchRef = useRef<HTMLInputElement>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get("search") ?? "";
 
   const options = useMemo(
     () => ({
@@ -74,9 +76,10 @@ export const Ships = () => {
   }, []);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newSearchText = e.target.value;
     clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
-      setSearchText(e.target.value);
+      setSearchParams({ search: newSearchText });
     }, 300);
   };
 
